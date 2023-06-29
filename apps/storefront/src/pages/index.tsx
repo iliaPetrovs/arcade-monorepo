@@ -8,10 +8,7 @@ import { NextPageWithLayout } from "types/global"
 const Home: NextPageWithLayout = () => {
   return (
     <>
-      <Head
-        title="Home"
-        description="Shop all available models only at the ACME. Worldwide Shipping. Secure Payment."
-      />
+      <Head title="Home" description="Funny item time" />
       <Hero />
       <FeaturedProducts />
     </>

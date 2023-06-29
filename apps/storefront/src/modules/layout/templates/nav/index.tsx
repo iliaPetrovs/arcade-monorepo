@@ -5,9 +5,11 @@ import DropdownMenu from "@modules/layout/components/dropdown-menu"
 import MobileMenu from "@modules/mobile-menu/templates"
 import DesktopSearchModal from "@modules/search/templates/desktop-search-modal"
 import clsx from "clsx"
+import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
+import Banner from "../../../../assets/banner.jpeg"
 
 const Nav = () => {
   const { pathname } = useRouter()
@@ -40,40 +42,24 @@ const Nav = () => {
   const { toggle } = useMobileMenu()
 
   return (
-    <div
-      className={clsx("sticky top-0 inset-x-0 z-50 group", {
-        "!fixed": isHome,
-      })}
-    >
-      <header
-        className={clsx(
-          "relative h-16 px-8 mx-auto transition-colors bg-transparent border-b border-transparent duration-200 group-hover:bg-white group-hover:border-gray-200",
-          {
-            "!bg-white !border-gray-200": !isHome || isScrolled,
-          }
-        )}
-      >
-        <nav
-          className={clsx(
-            "text-gray-900 flex items-center justify-between w-full h-full text-small-regular transition-colors duration-200",
-            {
-              "text-white group-hover:text-gray-900": isHome && !isScrolled,
-            }
-          )}
-        >
+    <div className={clsx("top-0 inset-x-0 z-50 group")}>
+      <header>
+        <div style={{ width: "100%", height: "200px", position: "relative" }}>
+          <Image
+            src={Banner.src}
+            layout="fill"
+            objectFit="cover"
+            alt="Banner for Canine Arcade"
+          />
+        </div>
+        <nav>
           <div className="flex-1 basis-0 h-full flex items-center">
             <div className="block small:hidden">
               <Hamburger setOpen={toggle} />
             </div>
-            <div className="hidden small:block h-full">
-              <DropdownMenu />
+            <div>
+              <span>Hello</span>
             </div>
-          </div>
-
-          <div className="flex items-center h-full">
-            <Link href="/">
-              <a className="text-xl-semi uppercase">Acme</a>
-            </Link>
           </div>
 
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
