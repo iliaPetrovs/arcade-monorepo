@@ -10,7 +10,12 @@ services:
       - postgres
       - redis
     environment:
-      DATABASE_URL: postgres://postgres:postgres@postgres:5432/medusa-docker
+      DEPLOYMENT: local
+      DB_USERNAME: ilja.petrovs
+      DB_PASSWORD: root
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: caninedb
       REDIS_URL: redis://redis
       NODE_ENV: development
       JWT_SECRET: something
@@ -27,9 +32,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: medusa-docker
+      POSTGRES_USER: ilja.petrovs
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: caninedb
 
   redis:
     image: redis
